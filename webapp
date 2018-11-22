@@ -1,0 +1,106 @@
+<template lang="">
+
+	<div class="app flex-row align-items-center">
+		<div class="container">
+			<b-row class="justify-content-center">
+				<b-col md="8">
+					<b-card-group>
+						<b-card no-body class="p-4">
+							<b-card-body>
+								<b-form @submit.prevent="login">
+									<h1>Login</h1>
+									<p class="text-muted">Sign In to your account</p>
+									<b-alert v-if="error" variant="danger" dismissible fade show> {{ error }} </b-alert>
+									<b-input-group class="mb-3">
+										<b-input-group-prepend>
+											<b-input-group-text><i class="icon-user"></i></b-input-group-text>
+										</b-input-group-prepend>
+										<b-form-input type="email"
+										              v-model="email"
+										              class="form-control"
+										              placeholder="Email address"
+										              autocomplete="email"
+										              id="inputEmail"
+										              reqiured
+										              autofocus/>
+									</b-input-group>
+									<b-input-group class="mb-4">
+										<b-input-group-prepend>
+											<b-input-group-text><i class="icon-lock"></i></b-input-group-text>
+										</b-input-group-prepend>
+										<b-form-input type="password"
+										              v-model="password"
+										              class="form-control"
+										              placeholder="Password"
+										              autocomplete="current-password"
+										              id="inputPassword"
+										              required/>
+									</b-input-group>
+									<b-row>
+										<b-col cols="6">
+											<b-button type="submit" variant="primary" class="px-4">Login</b-button>
+										</b-col>
+									</b-row>
+								</b-form>
+							</b-card-body>
+						</b-card>
+						<b-card no-body class="text-white bg-primary py-5 d-md-down-none" >
+							<b-card-body class="text-center">
+								<div>
+									<h2 class="mt-4">Pixel Komunitas</h2>
+									<br>
+									<p>Innovation and professional expertise to ensure your brand and marketing communications reach millions on-the-move and deliver results.
+									</p>
+								</div>
+							</b-card-body>
+						</b-card>
+					</b-card-group>
+				</b-col>
+			</b-row>
+		</div>
+	</div>
+
+</template>
+
+<script>
+
+	export default {
+		data() {
+			return {
+				email: '',
+				password: '',
+				error: false
+			}
+		},
+		methods: {
+			login() {
+				this.$http.post('/auth/login', { email: this.email, password: this.password }).then(
+					response => {
+						this.loginSuccessful(response)
+					},
+					error => {
+						this.loginFailed(error.response)
+					}
+				)
+			},
+
+			loginSuccessful(response) {
+				if (!response.data.token) {
+					this.loginFailed(response)
+					return
+				}
+				this.error = false
+				localStorage.token = response.data.token
+				this.$store.dispatch('login')
+				this.$router.replace(this.$route.query.redirect || '/home')
+			},
+
+			loginFailed(response) {
+				this.error = response.data.message
+				this.$store.dispatch('logout')
+				delete localStorage.token
+			}
+		}
+	}
+
+</script>
