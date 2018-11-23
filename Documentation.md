@@ -3,9 +3,9 @@
 
 
 1. Create local storage for register user.
-    
+    '''
     let users = JSON.parse(localStorage.getItem('users')) || [];
-
+    '''
 
 2. Wrap in timeout to simulate server api call.
     
