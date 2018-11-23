@@ -43,25 +43,6 @@ const actions = {
                     dispatch('alert/error', error, { root: true });
                 }
             );
-    },
-    
-    update({ dispatch, commit }, user) {
-        commit('updateRequest', user);
-    
-        user.update(user)
-            .then(
-                user => {
-                    commit('updateSuccess', user);
-                    router.push('/home');
-                    setTimeout(() => {
-                        dispatch('alert/success', 'Update successful', { root: true });
-                    })
-                },
-                error => {
-                    commit('updateFailure', error);
-                    dispatch('alert/error', error, { root: true });
-                }
-            );
     }
 };
 
@@ -89,15 +70,6 @@ const mutations = {
         state.status = {};
     },
     registerFailure(state, error) {
-        state.status = {};
-    },
-    updateRequest(state, user) {
-        state.status = { updating: true };
-    },
-    updateSuccess(state, user) {
-        state.status = {};
-    },
-    updateFailure(state, error) {
         state.status = {};
     }
 };
