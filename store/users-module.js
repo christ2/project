@@ -23,6 +23,27 @@ const actions = {
                 user => commit('deleteSuccess', id),
                 error => commit('deleteSuccess', { id, error: error.toString() })
             );
+    },
+    
+    
+
+    update({ dispatch, commit }, id) {
+        commit('updateRequest', id);
+    
+        user.update(id)
+            .then(
+                user => {
+                    commit('updateSuccess', id);
+                    router.push('/home');
+                    setTimeout(() => {
+                        dispatch('alert/success', 'Update successful', { root: true });
+                    })
+                },
+                error => {
+                    commit('updateFailure', error);
+                    dispatch('alert/error', error, { root: true });
+                }
+            );
     }
 };
 
@@ -55,7 +76,17 @@ const mutations = {
 
             return user;
         })
+    },
+    updateRequest(state, user) {
+        state.status = { updating: true };
+    },
+    updateSuccess(state, user) {
+        state.status = {};
+    },
+    updateFailure(state, error) {
+        state.status = {};
     }
+
 };
 
 export const users = {
