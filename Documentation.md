@@ -1,5 +1,5 @@
 ## In this project, I use JSON for data interchange medium to REST API
-## You can see the full code in backend.js file inside models folder
+* You can see the full code in backend.js file inside models folder *
 
 
 1. Create local storage for register user.
@@ -9,7 +9,7 @@
 
 2. Wrap in timeout to simulate server api call.
     
-    >In this phase, I use keyword setTimeout()
+    >In this phase, I use keyword ```setTimeout()```
 
 
 3. After receive API call, we set the authentication and get the users using POST and GET method.
