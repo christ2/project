@@ -78,13 +78,13 @@ const mutations = {
             return user;
         })
     },
-    updateRequest(state, user) {
+    updateRequest(state, id) {
         state.status = { updating: true };
     },
-    updateSuccess(state, user) {
+    updateSuccess(state, id) {
         state.status = {};
     },
-    updateFailure(state, error) {
+    updateFailure(state, {id,error}) {
         state.status = {};
     }
 
