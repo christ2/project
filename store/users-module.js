@@ -1,4 +1,5 @@
 import { user } from '../_services';
+import { router } from '../_models';
 
 const state = {
     all: {}
