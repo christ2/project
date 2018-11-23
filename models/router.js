@@ -4,7 +4,6 @@ import Router from 'vue-router';
 import HomePage from '../home/HomePage'
 import LoginPage from '../login/LoginPage'
 import RegisterPage from '../register/RegisterPage'
-import updatePage from '../update/UpdatePage
 
 Vue.use(Router);
 
@@ -13,8 +12,7 @@ export const router = new Router({
   routes: [
     { path: '/', component: HomePage },
     { path: '/login', component: LoginPage },
-    { path: '/register', component: RegisterPage },
-    { path: '/update', component: UpdatePage}
+    { path: '/register', component: RegisterPage }
 
     { path: '*', redirect: '/' }
   ]
