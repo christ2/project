@@ -3,13 +3,13 @@
 
 
 1. Create local storage for register user.
-    '''
+    ```
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    '''
+    ```
 
 2. Wrap in timeout to simulate server api call.
     
-    In this phase, I use keyword setTimeout()
+    >In this phase, I use keyword setTimeout()
 
 
 3. After receive API call, we set the authentication and get the users using POST and GET method.
