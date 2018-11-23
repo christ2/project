@@ -9,7 +9,6 @@
                 {{user.firstName + ' ' + user.lastName}}
                 <span v-if="user.deleting"><em> - Deleting...</em></span>
                 <span v-else-if="user.deleteError" class="text-danger"> - ERROR: {{user.deleteError}}</span>
-                <router-link to="/update" class="btn btn-link">Update</router-link>
                 <span v-else> - <a @click="deleteUser(user.id)" class="text-danger">Delete</a></span>
             </li>
         </ul>
