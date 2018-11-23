@@ -72,6 +72,16 @@ function update(user) {
     return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);
 }
 
+function update(id) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+    };
+
+    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
+}
+
 function _delete(id) {
     const requestOptions = {
         method: 'DELETE',
