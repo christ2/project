@@ -6,20 +6,25 @@
     
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
+
 2. Wrap in timeout to simulate server api call.
     
     In this phase, I use keyword setTimeout()
 
+
 3. After receive API call, we set the authentication and get the users using POST and GET method.
     
     url.endsWith('/users/authenticate') && opts.method === 'POST'
+    
     url.endsWith('/users') && opts.method === 'GET'
+    
     
 4. Next, we getting the user id and check the token in header if return user is valid.
     
     opts.headers && opts.headers.Authorization === 'Bearer token'
 
    --this security is implemented server side in a real application
+   
    
 5. Then we can register user with POST method and save the new user.
     
