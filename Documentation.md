@@ -1,5 +1,5 @@
-### In this project, I use JSON for data interchange medium to REST API
-### You can see the full code in backend.js file inside models folder
+## In this project, I use JSON for data interchange medium to REST API
+## You can see the full code in backend.js file inside models folder
 
 
 1. Create local storage for register user.
@@ -7,23 +7,28 @@
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
 2. Wrap in timeout to simulate server api call.
+    
     In this phase, I use keyword setTimeout()
 
 3. After receive API call, we set the authentication and get the users using POST and GET method.
+    
     url.endsWith('/users/authenticate') && opts.method === 'POST'
     url.endsWith('/users') && opts.method === 'GET'
     
 4. Next, we getting the user id and check the token in header if return user is valid.
+    
     opts.headers && opts.headers.Authorization === 'Bearer token'
 
    --this security is implemented server side in a real application
    
 5. Then we can register user with POST method and save the new user.
+    
     newUser.id = users.length ? Math.max(...users.map(user => user.id)) + 1 : 1;
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
    
    --If you want to validate if user has been taken, you can use reject keyword.
+    
     let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
       if (duplicateUser) {
           reject('Username "' + newUser.username + '" is already taken');
@@ -31,6 +36,7 @@
       }
 
 6. For delete user, we use DELETE method and 'splice' keyword  
+    
     url.match(/\/users\/\d+$/) && opts.method === 'DELETE'
     
     users.splice(i, 1);
