@@ -1,5 +1,5 @@
 ## In this project, I use JSON for data interchange medium to REST API
-**You can see the full code in backend.js file inside models folder**
+### You can see the full code in backend.js file inside models folder
 
 
 1. Create local storage for register user.
