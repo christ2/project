@@ -1,6 +1,6 @@
 let users = JSON.parse(localStorage.getItem('users')) || [];
     
-export function configureFakeBackend() {
+export function configureBackend() {
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         return new Promise((resolve, reject) => {
