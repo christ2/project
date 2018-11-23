@@ -55,7 +55,6 @@ export function configureBackend() {
                     return;
                 }
 
-                // register user
                 if (url.endsWith('/users/register') && opts.method === 'POST') {
                     let newUser = JSON.parse(opts.body);
 
