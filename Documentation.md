@@ -9,6 +9,7 @@
 4. The project is structured into "feature folders" (users) "non-feature / shared component folders" (_helpers). Shared component folders contain code that can be used by multiple features and other parts of the application, and are prefixed with an underscore to group them together so it's easier to see anything at a glance.
 
 
+
 # Using the application
 
 1. First, we'll see the login page after open the app. We can insert our username and password to login. If we haven't registered our
