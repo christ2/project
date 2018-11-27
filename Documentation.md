@@ -6,8 +6,7 @@
 
 3. Start the application by running ```npm start``` from the command line in the project root folder, this will launch a browser displaying the application and it should be hooked up with the NodeJS + MongoDB API that already have running.
 
-4. The project is structured into "feature folders" (users) "non-feature / shared component folders" (_helpers). Shared component folders contain code that can be used by multiple features and other parts of the application, and are prefixed with an underscore to group them together so it's easier to see anything at a glance.
-
+4. The project is structured into "feature folders" (users) and "non-feature / shared component folders" (_helpers). Shared component folders contain code that can be used by multiple features and other parts of the application, and are prefixed with an underscore to group them together, so it's easier to see anything at a glance.
 
 
 # Using the application
