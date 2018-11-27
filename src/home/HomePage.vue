@@ -7,6 +7,7 @@
         <ul v-if="users.items">
             <li v-for="user in users.items" :key="user.id">
                 {{user.firstName + ' ' + user.lastName}}
+                <router-link to="/update">Update</router-link>
                 <span v-if="user.deleting"><em> - Deleting...</em></span>
                 <span v-else-if="user.deleteError" class="text-danger"> - ERROR: {{user.deleteError}}</span>
                 <span v-else> - <a @click="deleteUser(user.id)" class="text-danger">Delete</a></span>
