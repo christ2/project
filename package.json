@@ -1,9 +1,9 @@
 {
-  "name": "vue-vuex-registration-login-example",
+  "name": "xendit-internship-test",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cornflourblue/vue-vuex-registration-login-example.git"
+    "url": "https://github.com/christ2/project.git"
   },
   "license": "MIT",
   "scripts": {
